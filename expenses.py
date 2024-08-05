@@ -11,8 +11,17 @@ class Expenses:
 
     def display(self):
         for e in self.expenses_list:
-            print(e)
+            print(str(e))
 
     def save_to_json(self, filename):
         with open(filename, 'w') as file:
             json.dump(self.expenses_list, file)
+
+    def get_from_json(self, filename):
+        data = []
+        self.expenses_list = []
+        with open(filename, 'r') as file:
+            data = json.load(file)
+        for d in data:
+            #print(d['amount'], Expense.types.index(d['type']))
+            self.add_expense(Expense(d['amount'], Expense.types.index(d['type'])))

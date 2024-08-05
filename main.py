@@ -30,10 +30,12 @@ while True:
         type = int(input("Enter the type:")) - 1
         exp.add_expense(Expense(float(input("Enter amount:")), type))
     elif choice == 2:
-        filename = input("Enter filename:")
-        exp.save_to_json(filename + '.json')
+        filename = input("Enter filename:") + '.json'
+        exp.save_to_json(filename)
     elif choice == 3:
-        pass
+        filename = input("Enter filename:") + '.json'
+        exp.get_from_json(filename)
+
     elif choice == 4:
         pass
     elif choice == 5:
