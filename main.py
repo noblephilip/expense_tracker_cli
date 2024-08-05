@@ -15,7 +15,7 @@ def menu():
         print("3. READ FROM A FILE")
         print("4. FIND TOP SPEND CATAGORY")
         print("5. EXIT")
-        choice = int(input("ENTER YOUR CHOICE(1-5)"))
+        choice = int(input("ENTER YOUR CHOICE(1-5):"))
         if 0 < choice <= 5:
             return choice
 
@@ -23,9 +23,11 @@ def menu():
 # main function
 while True:
     choice = menu()
-    print(choice)
     if choice == 1:
-        exp.add_expense(Expense(100, 1))
+        for i, t in enumerate(Expense.get_types()):
+            print(f'{i + 1}. {t}')
+        type = int(input("Enter the type:")) - 1
+        exp.add_expense(Expense(float(input("Enter amount:")), type))
         exp.display()
     elif choice == 2:
         pass
