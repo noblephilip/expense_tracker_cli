@@ -30,14 +30,14 @@ while True:
         type = int(input("Enter the type:")) - 1
         exp.add_expense(Expense(float(input("Enter amount:")), type))
     elif choice == 2:
-        filename = input("Enter filename:") + '.json'
+        filename = input("Enter filename:") + ".json"
         exp.save_to_json(filename)
     elif choice == 3:
-        filename = input("Enter filename:") + '.json'
+        filename = input("Enter filename:") + ".json"
         exp.get_from_json(filename)
-
     elif choice == 4:
-        pass
+        spnt = exp.top_spent()
+        print(f"Spent {spnt[0]} on {spnt[1]}")
     elif choice == 5:
         exp.display()
     elif choice == 6:
